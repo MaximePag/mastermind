@@ -39,29 +39,29 @@
 }
 @keyframes clicked {
     0% {
-        border: 5px white dashed;
+        border: 3px white dashed;
         border-radius: 20%;
     }
     50% {
-        border: 9px white dashed;
+        border: 5px white dashed;
         border-radius: 40%;
     }
     100% {
-        border: 13px white dashed;
+        border: 8px white dashed;
         border-radius: 60%;
     }
 }
 @keyframes clicked_white {
     0% {
-        border: 5px grey dashed;
+        border: 3px grey dashed;
         border-radius: 20%;
     }
     50% {
-        border: 9px grey dashed;
+        border: 5px grey dashed;
         border-radius: 40%;
     }
     100% {
-        border: 13px grey dashed;
+        border: 8px grey dashed;
         border-radius: 60%;
     }
 }

@@ -3,6 +3,7 @@ let cells = document.getElementsByClassName('cell');
 let cellResults = document.getElementsByClassName('cell_results');
 let table = document.getElementById('table');
 let validTurn = document.getElementById('validTurn');
+let resetButton = document.getElementById('reset');
 let colorsList = document.getElementById('colorsList');
 let colorChoosen;
 let turn = 0;
@@ -36,8 +37,8 @@ table.addEventListener('click', function (event) {
         }
     }
     if (event.target.classList.contains('color')) {
-        if (cellResults[0 + 4 * turn].classList.length() == 0 && cellResults[1 + 4 * turn].classList.length() == 0 
-            && cellResults[2 + 4 * turn].classList.length() == 0 && cellResults[3 + 4 * turn].classList.length() == 0){
+        if (cellResults[0 + 4 * turn].children[0] == undefined && cellResults[1 + 4 * turn].children[0] == undefined
+            && cellResults[2 + 4 * turn].children[0] == undefined && cellResults[3 + 4 * turn].children[0] == undefined) {
             let targetColor = event.target;
             if (colorChoosen != null) {
                 targetColor.classList.remove(targetColor.classList.item(2));
@@ -55,8 +56,8 @@ validTurn.addEventListener('click', checkWin);
 function checkWin() {
     let playerColors = [[], [], [], []];
     var checkPlace = [];
-    if (cells[0 + 4 * turn].children[0].classList.contains('color') && cells[1 + 4 * turn].children[0].classList.contains('color') 
-        && cells[2 + 4 * turn].children[0].classList.contains('color') && cells[3 + 4 * turn].children[0].classList.contains('color')){
+    if (cells[0 + 4 * turn].children[0].classList.contains('color') && cells[1 + 4 * turn].children[0].classList.contains('color')
+        && cells[2 + 4 * turn].children[0].classList.contains('color') && cells[3 + 4 * turn].children[0].classList.contains('color')) {
         for (i = 0; i < 4; i++) {
             switch (cells[i + 4 * turn].children[0].classList[2]) {
                 case 'red':
@@ -117,10 +118,24 @@ function checkWin() {
             }
             winColors[i][1] = 0;
         }
-        if (checkPlace[0] == 1 && checkPlace[1] == 1 && checkPlace[2] == 1 && checkPlace[3] == 1){
+        if (checkPlace[0] == 1 && checkPlace[1] == 1 && checkPlace[2] == 1 && checkPlace[3] == 1) {
             alert('Bien joué vous avez trouvé la combinaison secrète !!!');
         }
         turn++;
         document.getElementById('turn').innerText = 'Tour : ' + (turn + 1);
     }
 }
+resetButton.addEventListener('click', reset)
+function reset() {
+    turn = 0;
+    let winColors = [[], [], [], []];
+    for (let i = 0; i < 4; i++) {
+        winColors[i].push(Math.floor(Math.random() * 7), 0);
+    }
+    console.log(winColors);
+    playerColors = [[], [], [], []];
+    checkPlace = [];
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
+    }
+};
