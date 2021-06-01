@@ -122,7 +122,7 @@ function checkWin() {
             alert('Bien joué vous avez trouvé la combinaison secrète !!!');
         }
         turn++;
-        document.getElementById('turn').innerText = 'Tour : ' + (turn + 1);
+        document.getElementById('turn').innerText = 'Tour ' + (turn + 1);
     }
 }
 resetButton.addEventListener('click', reset)
@@ -139,5 +139,5 @@ function reset() {
         cells[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
         cellResults[i].classList.remove('wellplaced', 'misplaced', 'notplaced');
     }
-    document.getElementById('turn').innerText = 'Tour : ' + (turn + 1);
+    document.getElementById('turn').innerText = 'Tour ' + (turn + 1);
 };
