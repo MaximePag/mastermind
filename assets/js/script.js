@@ -121,8 +121,13 @@ function checkWin() {
         if (checkPlace[0] == 1 && checkPlace[1] == 1 && checkPlace[2] == 1 && checkPlace[3] == 1) {
             alert('Bien joué vous avez trouvé la combinaison secrète !!!');
         }
-        turn++;
-        document.getElementById('turn').innerText = 'Tour ' + (turn + 1);
+        else if (turn == 9){
+            alert('Dommage vous n\'avez pas réussi à trouver la combinaison secrète :(');
+        }
+        else{
+            turn++;
+            document.getElementById('turn').innerText = 'Tour ' + (turn + 1);
+        }
     }
 }
 resetButton.addEventListener('click', reset)
