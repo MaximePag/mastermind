@@ -123,7 +123,7 @@ function checkWin() {
             alert('Bien joué vous avez trouvé la combinaison secrète !!!');
             end(winColors[0][0], winColors[1][0], winColors[2][0], winColors[3][0]);
         }
-        else if (turn == 1){
+        else if (turn == 9){
             alert('Dommage vous n\'avez pas réussi à trouver la combinaison secrète :(');
             end(winColors[0][0], winColors[1][0], winColors[2][0], winColors[3][0]);
         }
