@@ -174,6 +174,7 @@ function reset() {
     for (let i = 0; i < 4; i++) {
         winColors[i].push(Math.floor(Math.random() * 7), 0);
         resultRow.children[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
+        resultRow.children[i].children[0].children[0].remove();
         let unknownIcon = document.createElement('i');
         unknownIcon.classList.add('bi', 'bi-patch-question-fill', 'text-warning', 'fs-1');
         resultRow.children[i].children[0].appendChild(unknownIcon);
