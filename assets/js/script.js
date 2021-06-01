@@ -5,6 +5,7 @@ let table = document.getElementById('table');
 let validTurn = document.getElementById('validTurn');
 let resetButton = document.getElementById('reset');
 let colorsList = document.getElementById('colorsList');
+let resultRow = document.getElementById('resultRow');
 let colorChoosen;
 let turn = 0;
 
@@ -93,7 +94,7 @@ function checkWin() {
         for (i = 0; i < 4; i++) {
             if (playerColors[i][1] != 1) {
                 for (j = 0; j < 4; j++) {
-                    if (playerColors[i][0] == winColors[j][0] && winColors[j][1] != 1) {
+                    if (playerColors[i][0] == winColors[j][0] && winColors[j][1] != 1 && playerColors[i][1] != 1) {
                         playerColors[i][1] = 1;
                         winColors[j][1] = 1;
                         checkPlace.push(0);
@@ -120,13 +121,50 @@ function checkWin() {
         }
         if (checkPlace[0] == 1 && checkPlace[1] == 1 && checkPlace[2] == 1 && checkPlace[3] == 1) {
             alert('Bien joué vous avez trouvé la combinaison secrète !!!');
+            end(winColors[0][0], winColors[1][0], winColors[2][0], winColors[3][0]);
         }
-        else if (turn == 9){
+        else if (turn == 1){
             alert('Dommage vous n\'avez pas réussi à trouver la combinaison secrète :(');
+            end(winColors[0][0], winColors[1][0], winColors[2][0], winColors[3][0]);
         }
         else{
             turn++;
             document.getElementById('turn').innerText = 'Tour ' + (turn + 1);
+        }
+    }
+}
+function end(color0, color1, color2, color3) {
+    let endColors = [color0, color1, color2, color3];
+    for (let i = 0; i < 4; i++){
+        switch (endColors[i]) {
+            case 0:
+                resultRow.children[i].children[0].classList.add('color', 'red');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
+            case 1:
+                resultRow.children[i].children[0].classList.add('color', 'blue');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
+            case 2:
+                resultRow.children[i].children[0].classList.add('color', 'green');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
+            case 3:
+                resultRow.children[i].children[0].classList.add('color', 'yellow');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
+            case 4:
+                resultRow.children[i].children[0].classList.add('color', 'purple');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
+            case 5:
+                resultRow.children[i].children[0].classList.add('color', 'white');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
+            case 6:
+                resultRow.children[i].children[0].classList.add('color', 'black');
+                resultRow.children[i].children[0].children[0].remove();
+                break;
         }
     }
 }
@@ -136,6 +174,10 @@ function reset() {
     winColors = [[], [], [], []];
     for (let i = 0; i < 4; i++) {
         winColors[i].push(Math.floor(Math.random() * 7), 0);
+        resultRow.children[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
+        let unknownIcon = document.createElement('i');
+        unknownIcon.classList.add('bi', 'bi-patch-question-fill', 'text-warning', 'fs-1');
+        resultRow.children[i].children[0].appendChild(unknownIcon);
     }
     console.log(winColors);
     playerColors = [[], [], [], []];

@@ -1,6 +1,6 @@
 .cell{
     width: 60px;
-    height: 50px;
+    height: 60px;
     border: 3px white solid;
 }
 .cell_results{
@@ -89,4 +89,7 @@
 }
 section{
     margin-top: 18vh;
+}
+#resultRow td{
+    border: 3px gold dashed;
 }
