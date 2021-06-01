@@ -11,19 +11,25 @@
 </head>
 
 <body class="bg-dark">
-    <nav id="colorsList" class="navbar container-fluid fixed-top bg-secondary row">
-        <div class="color col-1 red"></div>
-        <div class="color col-1 blue"></div>
-        <div class="color col-1 green"></div>
-        <div class="color col-1 yellow"></div>
-        <div class="color col-1 purple"></div>
-        <div class="color col-1 white"></div>
-        <div class="color col-1 black"></div>
-        <div class="col-4 mt-2">
-            <h2 id="turn">Tour : 1</h2>
+    <nav id="colorsList" class="navbar container-fluid fixed-top bg-secondary justify-content-center">
+        <div class="color red"></div>
+        <div class="color blue"></div>
+        <div class="color green"></div>
+        <div class="color yellow"></div>
+        <div class="color purple"></div>
+        <div class="color white"></div>
+        <div class="color black"></div>
+        <div class="row mt-2">
+            <div class="col-4">
+                <h2 id="turn">Tour : 1</h2>
+            </div>
+            <div class="col-6">
+                <button id="validTurn" class="btn btn-success">Valider le tour</button>
+            </div>
+            <div class="col-2">
+                <button id="reset" class="btn btn-warning"><i class="bi bi-arrow-repeat"></i></button>
+            </div>
         </div>
-        <button id="validTurn" class="col-5 mt-2 btn btn-success">Valider le tour</button>
-        <button id="reset" class="col-2 mt-2 btn btn-warning"><i class="bi bi-arrow-repeat"></i></button>
     </nav>
     <section class="container-fluid">
         <div class="row">

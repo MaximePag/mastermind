@@ -21,7 +21,7 @@ colorsList.addEventListener('click', function (event) {
         else {
             color.classList.toggle("color_clicked");
         }
-        colorChoosen = color.classList[2];
+        colorChoosen = color.classList[1];
     }
 });
 table.addEventListener('click', function (event) {
@@ -137,5 +137,7 @@ function reset() {
     checkPlace = [];
     for (let i = 0; i < cells.length; i++) {
         cells[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
+        cellResults[i].classList.remove('wellplaced', 'misplaced', 'notplaced');
     }
+    document.getElementById('turn').innerText = 'Tour : ' + (turn + 1);
 };

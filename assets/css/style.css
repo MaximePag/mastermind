@@ -30,6 +30,7 @@
     border: 2px black solid;
     border-radius: 100%;
     background-color: transparent;
+    margin: 1%;
 }
 .color_clicked{
     animation: clicked 1s alternate infinite;
@@ -87,5 +88,5 @@
     background-color: black;
 }
 section{
-    margin-top: 20vh;
+    margin-top: 15vh;
 }
