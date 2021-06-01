@@ -87,8 +87,11 @@
 .black{
     background-color: black;
 }
+nav{
+    max-height: 13vh;
+}
 section{
-    margin-top: 18vh;
+    margin-top: 14vh;
 }
 #resultRow td{
     border: 3px gold dashed;

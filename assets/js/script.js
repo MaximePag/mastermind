@@ -38,10 +38,9 @@ table.addEventListener('click', function (event) {
         }
     }
     if (event.target.classList.contains('color')) {
-        if (cellResults[0 + 4 * turn].children[0] == undefined && cellResults[1 + 4 * turn].children[0] == undefined
-            && cellResults[2 + 4 * turn].children[0] == undefined && cellResults[3 + 4 * turn].children[0] == undefined) {
-            let targetColor = event.target;
+        if (event.target.parentElement.parentElement.children[4].children[0].children[0].children[0].children[0].classList.length == 1) {
             if (colorChoosen != null) {
+                let targetColor = event.target;
                 targetColor.classList.remove(targetColor.classList.item(2));
                 targetColor.classList.add(colorChoosen);
             }
