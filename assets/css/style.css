@@ -1,0 +1,91 @@
+.cell{
+    width: 60px;
+    height: 50px;
+    border: 3px white solid;
+}
+.cell_results{
+    width: 25px;
+    height: 25px;
+    border: 2px white solid;
+    border-radius: 100%;
+}
+.misplaced{
+    background-color: white;
+}
+.wellplaced{
+    background-color: lime;
+}
+.notplaced{
+    background-color: black;
+}
+.table_result{
+    border: 2px white solid;
+    border-radius: 100%;
+    border-collapse: separate;
+    padding: 3px;
+}
+.color{
+    width: 40px;
+    height: 40px;
+    border: 2px black solid;
+    border-radius: 100%;
+    background-color: transparent;
+}
+.color_clicked{
+    animation: clicked 1s alternate infinite;
+}
+.color_clicked_white{
+    animation: clicked_white 1s alternate infinite;
+}
+@keyframes clicked {
+    0% {
+        border: 5px white dashed;
+        border-radius: 20%;
+    }
+    50% {
+        border: 9px white dashed;
+        border-radius: 40%;
+    }
+    100% {
+        border: 13px white dashed;
+        border-radius: 60%;
+    }
+}
+@keyframes clicked_white {
+    0% {
+        border: 5px grey dashed;
+        border-radius: 20%;
+    }
+    50% {
+        border: 9px grey dashed;
+        border-radius: 40%;
+    }
+    100% {
+        border: 13px grey dashed;
+        border-radius: 60%;
+    }
+}
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: gold;
+}
+.purple{
+    background-color: purple;
+}
+.white{
+    background-color: white;
+}
+.black{
+    background-color: black;
+}
+section{
+    margin-top: 20vh;
+}
