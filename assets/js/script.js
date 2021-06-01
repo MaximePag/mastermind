@@ -128,7 +128,7 @@ function checkWin() {
 resetButton.addEventListener('click', reset)
 function reset() {
     turn = 0;
-    let winColors = [[], [], [], []];
+    winColors = [[], [], [], []];
     for (let i = 0; i < 4; i++) {
         winColors[i].push(Math.floor(Math.random() * 7), 0);
     }
