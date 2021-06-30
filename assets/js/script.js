@@ -8,6 +8,7 @@ let colorsList = document.getElementById('colorsList');
 let resultRow = document.getElementById('resultRow');
 let colorChoosen;
 let turn = 0;
+let win = false;
 
 colorsList.addEventListener('click', function (event) {
     if (event.target.classList.contains('color')) {
@@ -120,9 +121,10 @@ function checkWin() {
         }
         if (checkPlace[0] == 1 && checkPlace[1] == 1 && checkPlace[2] == 1 && checkPlace[3] == 1) {
             alert('Bien joué vous avez trouvé la combinaison secrète !!!');
+            win = true;
             end(winColors[0][0], winColors[1][0], winColors[2][0], winColors[3][0]);
         }
-        else if (turn == 9){
+        else if (turn == 8){
             alert('Dommage vous n\'avez pas réussi à trouver la combinaison secrète :(');
             end(winColors[0][0], winColors[1][0], winColors[2][0], winColors[3][0]);
         }
@@ -169,16 +171,17 @@ function end(color0, color1, color2, color3) {
 }
 resetButton.addEventListener('click', reset)
 function reset() {
-    turn = 0;
     winColors = [[], [], [], []];
     for (let i = 0; i < 4; i++) {
         winColors[i].push(Math.floor(Math.random() * 7), 0);
-        resultRow.children[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
-        resultRow.children[i].children[0].children[0].remove();
-        let unknownIcon = document.createElement('i');
-        unknownIcon.classList.add('bi', 'bi-patch-question-fill', 'text-warning', 'fs-1');
-        resultRow.children[i].children[0].appendChild(unknownIcon);
+        if (win == true || turn == 8){
+            resultRow.children[i].children[0].classList.remove('color', 'red', 'blue', 'green', 'yellow', 'purple', 'white', 'black');
+            let unknownIcon = document.createElement('i');
+            unknownIcon.classList.add('bi', 'bi-patch-question-fill', 'text-warning', 'fs-1');
+            resultRow.children[i].children[0].appendChild(unknownIcon);    
+        }
     }
+    turn = 0;
     console.log(winColors);
     playerColors = [[], [], [], []];
     checkPlace = [];
